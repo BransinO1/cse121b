@@ -42,5 +42,5 @@ favoriteFoods.pop();
 foodElement.innerHTML += `<br>Favorite Foods: ${favoriteFoods.join(", ")}`;
 
 
-
+//Corbin Meacham CSE 121B FILE
 
