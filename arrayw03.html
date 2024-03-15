@@ -1,0 +1,80 @@
+<!-- Array activity w03 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Operations</title>
+</head>
+<body>
+    
+<h2>Steps</h2>
+<ul id="stepsList">
+</ul>
+
+<h2>GPA Points</h2>
+<ul id="gpaList">
+</ul>
+
+<h2>Words</h2>
+<ul id="wordsList">
+</ul>
+
+<h2>Short Words (Less than 6 characters)</h2>
+<ul id="shortWordsList">
+</ul>
+
+<h2>My Array</h2>
+<ul id="myArrayList">
+</ul>
+
+<h2>Lucky Number and Index</h2>
+<p id="luckyNumberInfo">
+</p>
+
+<script>
+    // Activity 1 - Map
+    const steps = ["one", "two", "three"];
+    const stepsHtml = steps.map(function (step) {
+        return `<li>${step}</li>`;
+    });
+    document.getElementById("stepsList").innerHTML = stepsHtml.join("");
+
+    // Activity 2 - Map
+    const grades = ["A", "B", "A"];
+    function convertGradeToPoints(grade) {
+        let points = 0;
+        if (grade === "A") {
+            points = 4;
+        } else if (grade === "B") {
+            points = 3;
+        }
+        return points;
+    }
+    const gpaPoints = grades.map(convertGradeToPoints);
+    const gpa = gpaPoints.reduce(function (total, item) {
+        return total + item;
+    }) / gpaPoints.length;
+    document.getElementById("gpaList").innerHTML = gpaPoints.map(point => `<li>${point}</li>`).join("");
+
+    // Activity 3 - Reduce
+    const words = ["watermelon", "peach", "apple", "tomato", "grape"];
+    const wordsHtml = words.map(word => `<li>${word}</li>`);
+    document.getElementById("wordsList").innerHTML = wordsHtml.join("");
+
+    // Activity 4 - Filter
+    const shortWords = words.filter(word => word.length < 6);
+    const shortWordsHtml = shortWords.map(word => `<li>${word}</li>`);
+    document.getElementById("shortWordsList").innerHTML = shortWordsHtml.join("");
+
+    // Activity 5 - index0f
+    const myArray = [12, 34, 21, 54];
+    const luckyNumber = 21;
+    let luckyIndex = myArray.indexOf(luckyNumber);
+    document.getElementById("myArrayList").innerHTML = myArray.map(number => `<li>${number}</li>`).join("");
+    document.getElementById("luckyNumberInfo").textContent = `Lucky number: ${luckyNumber}, Index: ${luckyIndex}`;
+</script>
+
+</body>
+</html>
